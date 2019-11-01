@@ -36,7 +36,7 @@ def send_mails():
             EC.presence_of_element_located((By.XPATH,'//*[@id="screens"]/div/div/div/button' )))
         driver.find_element_by_xpath('//*[@id="screens"]/div//div[@class="screen__content"]/section/div//div[@style="margin-right: 139px;"]//input[@class="input"]').send_keys(mail)
         driver.find_element_by_xpath('//*[@id="screens"]/div//div[@class="screen__content"]/section//div[@class="sendmsg__form-label"]//div[@class="sendmsg__form-label-field subject"]/input').send_keys(randomStringDigits(10))
-        driver.find_element_by_id('mce_{}_ifr'.format(i)).send_keys(randomStringDigits(10))
+        driver.find_element_by_xpath('//*[@frameborder="0"]').send_keys(randomStringDigits(10))
         driver.find_element_by_xpath('//*[@id="screens"]/div/div/div/button').click()
         sleep(1.5)
 
@@ -80,7 +80,7 @@ def send_data():
                 letters += 1
         list.append('It contains {} letter(s) and {} number(s)\n'.format(letters, nums))
 
-    driver.find_element_by_id('mce_15_ifr').send_keys(list)
+    driver.find_element_by_xpath('//*[@frameborder="0"]').send_keys(list)
     driver.find_element_by_xpath('//*[@id="screens"]/div/div/div/button').click()
     print('Message has been sent!')
 
